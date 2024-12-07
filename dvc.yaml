@@ -1,0 +1,5 @@
+stages:
+  download_dataset:
+    cmd: python src/dataset.py
+    outs:
+    - data/raw
