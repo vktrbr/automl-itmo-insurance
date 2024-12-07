@@ -13,6 +13,13 @@ kaggle = "^1.6.17"
 python-dotenv = "^1.0.1"
 
 
+[tool.poetry.group.dev.dependencies]
+mkdocs = "^1.6.1"
+mkdocs-material = {extras = ["extensions"], version = "^9.5.47"}
+mkdocstrings = {extras = ["python"], version = "^0.27.0"}
+markdown-exec = "^1.10.0"
+pre-commit = "^4.0.1"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

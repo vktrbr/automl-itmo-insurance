@@ -1,4 +1,99 @@
-site_name: auto_ml_itmo_insurance_regression
-# 
-site_author: victor barbarich
-# 
+site_name: ITMO AutoML Insurance Regression
+site_author: Victor Barbarich
+site_description: "Documentation for ITMO AutoML Insurance Regression project."
+site_url: "https://github.com/vktrbr"  # Replace with your actual site URL
+repo_url: "https://github.com/vktrbr/automl-itmo-insurance"  # Replace with your repo URL
+repo_name: "GitHub"
+
+# Theme configuration
+theme:
+  name: material
+  language: en
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: black
+      accent: teal
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: teal
+  font:
+    text: "Roboto"
+    code: "Roboto Mono"
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+
+# Navigation structure
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Overview: getting-started/overview.md
+      - Installation: getting-started/installation.md
+  - Configuration: configuration.md
+  - Development:
+      - Contributing: development/contributing.md
+  - References:
+      - Dataset: references/dataset.md
+      - Models: references/models.md
+
+# Plugins
+plugins:
+  - search:
+  - markdown-exec
+  - mkdocstrings:
+      handlers:
+        python:
+          paths:
+            - ../src
+          options:
+            docstring_style: sphinx
+            inheritance_graph: true
+            inheritance_node_attrs: {"shape": "ellipse", "style": "filled", "fillcolor": "lightblue"}
+            docstring_options:
+              ignore_init_summary: true
+            filters: [ "!^_" ]
+            heading_level: 1
+            inherited_members: true
+            merge_init_into_class: true
+            parameter_headings: true
+            separate_signature: true
+            show_root_heading: true
+            show_root_full_path: true
+            show_signature_annotations: true
+            show_source: true
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+            signature_crossrefs: true
+            summary: true
+
+# Markdown extensions
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+      use_pygments: true
+  - toc:
+      permalink: true
+  - footnotes
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed
+
+# Site structure
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: "https://github.com/vktrbr/automl-itmo-insurance"
+    - icon: fontawesome/brands/linkedin
+      link: "https://www.linkedin.com/in/victor-barbarich/"
+    - icon: fontawesome/brands/telegram
+      link: "https://t.me/vktrbr"
+
+
+# Use the following to define project structure
+docs_dir: docs
+site_dir: site
