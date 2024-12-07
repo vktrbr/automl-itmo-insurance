@@ -1,35 +1,56 @@
+"""
+Load the dataset from Kaggle Regression with an Insurance Dataset
+
+[
+  https://www.kaggle.com/competitions/playground-series-s4e12/data
+](https://www.kaggle.com/competitions/playground-series-s4e12/data)
+
+Dataset Description
+The dataset for this competition (both train and test) was generated from a
+deep learning model trained on the Insurance Premium Prediction dataset.
+Feature distributions are close to, but not exactly the same, as the original.
+Feel free to use the original dataset as part of this competition,
+both to explore differences as well as to see whether incorporating
+the original in training improves model performance.
+
+
+Files:
+
+- train.csv - the training dataset; Premium Amount is the continuous target
+- test.csv - the test dataset; your objective is to predict target
+- sample_submission.csv - a sample submission file in the correct format
+
+"""
+
 import os
 import zipfile
 
 import typer
 from loguru import logger
 
-from config import (
-    EXTERNAL_DATA_DIR, KAGGLE_DATASET_NAME, RAW_DATA_DIR
-)
+from config import EXTERNAL_DATA_DIR, KAGGLE_DATASET_NAME, RAW_DATA_DIR
 
 app = typer.Typer(pretty_exceptions_enable=False)
 
 
 @app.command()
 def main(
-        destination: str = typer.Option(
-            EXTERNAL_DATA_DIR,
-            help="The destination folder to download the dataset"
-        ),
-        dataset: str = typer.Option(
-            KAGGLE_DATASET_NAME, help="The dataset name to download"
-        ),
-        reload_if_exists: bool = typer.Option(
-            False, help="If the dataset already exists, reload it"
-        )
+    destination: str = typer.Option(
+        EXTERNAL_DATA_DIR, help="The destination folder to download the dataset"
+    ),
+    dataset: str = typer.Option(
+        KAGGLE_DATASET_NAME, help="The dataset name to download"
+    ),
+    reload_if_exists: bool = typer.Option(
+        False, help="If the dataset already exists, reload it"
+    ),
 ):
     """
     Download the dataset from Kaggle
 
-    . code-block:: bash
-        dvc run -n download_dataset -d dataset.py -o data/raw python dataset.py
-
+    ```bash
+    dvc run -n download_dataset -d dataset.py -o data/raw python dataset.py
+    ```
 
     :param destination: The destination folder
     :param dataset: The dataset name. We are using the Insurance Regression DS
@@ -53,7 +74,7 @@ def authenticate():
     """
     Authenticate the user to Kaggle API
     """
-    logger.info(os.environ.get('KAGGLE_CONFIG_DIR'))
+    logger.info(os.environ.get("KAGGLE_CONFIG_DIR"))
     import kaggle.api
 
     # you should have a kaggle.json file in your home directory
@@ -63,9 +84,9 @@ def authenticate():
 
 
 def get_data(
-        dataset_folder: str = EXTERNAL_DATA_DIR,
-        dataset: str = KAGGLE_DATASET_NAME,
-        reload_if_exists: bool = False
+    dataset_folder: str = EXTERNAL_DATA_DIR,
+    dataset: str = KAGGLE_DATASET_NAME,
+    reload_if_exists: bool = False,
 ) -> str:
     """
     Download the dataset from Kaggle
@@ -90,11 +111,10 @@ def get_data(
     logger.info(f"Downloading dataset {dataset} to {destination}")
 
     result = kaggle.api.competitions_data_download_files(
-        dataset,
-        _preload_content=False
+        dataset, _preload_content=False
     )
 
-    with open(destination, 'wb') as f:
+    with open(destination, "wb") as f:
         f.write(result.data)
 
     logger.success(f"SUCCESS: Downloaded dataset {dataset} to {destination}")
@@ -102,10 +122,7 @@ def get_data(
     return destination
 
 
-def unzip_data(
-        path_to_dataset: str,
-        target_directory: str = RAW_DATA_DIR
-) -> list:
+def unzip_data(path_to_dataset: str, target_directory: str = RAW_DATA_DIR) -> list:
     """
     Unzip the dataset
 
@@ -116,12 +133,10 @@ def unzip_data(
 
     logger.info(f"Unzipping dataset {path_to_dataset} to {target_directory}")
 
-    with zipfile.ZipFile(path_to_dataset, 'r') as zip_ref:
+    with zipfile.ZipFile(path_to_dataset, "r") as zip_ref:
         zip_ref.extractall(target_directory)
 
-    logger.success(
-        f"SUCCESS: Unzipped dataset {path_to_dataset} to {target_directory}"
-    )
+    logger.success(f"SUCCESS: Unzipped dataset {path_to_dataset} to {target_directory}")
 
     files = os.listdir(target_directory)
 
