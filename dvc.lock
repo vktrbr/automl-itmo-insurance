@@ -1,8 +1,13 @@
 schema: '2.0'
 stages:
   download_dataset:
-    cmd: python src/dataset.py
+    cmd: python src/dataset.py --no-reload-if-exists
     outs:
+    - path: data/external
+      hash: md5
+      md5: ef0c354e3d5e2ab373e98dab99f2e7af.dir
+      size: 79146261
+      nfiles: 1
     - path: data/raw
       hash: md5
       md5: 81fcdcb7e37e0ac83770494236eb8c60.dir

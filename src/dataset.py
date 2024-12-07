@@ -63,20 +63,22 @@ def authenticate():
 
 
 def get_data(
-        destination: str = EXTERNAL_DATA_DIR,
+        dataset_folder: str = EXTERNAL_DATA_DIR,
         dataset: str = KAGGLE_DATASET_NAME,
         reload_if_exists: bool = False
 ) -> str:
     """
     Download the dataset from Kaggle
 
-    :param destination: The destination folder
+    :param dataset_folder: The destination folder
     :param dataset: The dataset name. We are using the Insurance Regression DS
     :param reload_if_exists: If the dataset already exists, reload it
     :return: The path to the downloaded dataset
     """
 
-    destination = os.path.join(destination, f"{dataset}.zip")
+    os.makedirs(dataset_folder, exist_ok=True)
+
+    destination = os.path.join(dataset_folder, f"{dataset}.zip")
 
     if not reload_if_exists and os.path.exists(destination):
         logger.info(f"Dataset already exists at {destination}")
