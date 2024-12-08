@@ -1,6 +1,6 @@
 stages:
   download_dataset:
-    cmd: python src/dataset.py --no-reload-if-exists
+    cmd: python src/dataset/get_dataset.py --no-reload-if-exists
     outs:
     - data/raw
     - data/external
