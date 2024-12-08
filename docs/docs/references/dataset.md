@@ -18,8 +18,8 @@ period.
 
 A significant proportion of payouts (38%) is concentrated in the range of 400 to 1000.
 
-![PREMIUM_AMOUNT_DISTRIBUTION_analysis](reports/figures/target_analysis/png/PREMIUM_AMOUNT_DISTRIBUTION_analysis.png)
-![PREMIUM_AMOUNT_DISTRIBUTION_BY_YEARS_analysis](reports/figures/target_analysis/png/PREMIUM_AMOUNT_DISTRIBUTION_BY_YEARS_analysis.html)
+![PREMIUM_AMOUNT_DISTRIBUTION_analysis](/reports/figures/target_analysis/png/PREMIUM_AMOUNT_DISTRIBUTION_analysis.png)
+[PREMIUM_AMOUNT_DISTRIBUTION_analysis.html](/reports/figures/target_analysis/html/PREMIUM_AMOUNT_DISTRIBUTION_analysis.html)
 
 ---
 
