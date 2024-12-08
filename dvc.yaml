@@ -1,6 +1,12 @@
 stages:
   download_dataset:
-    cmd: python src/dataset/get_dataset.py --no-reload-if-exists
+    cmd: python ./src/dataset/get_dataset.py --no-reload-if-exists
     outs:
-    - data/raw
-    - data/external
+      - data/raw
+      - data/external
+  preprocess_dataset:
+    cmd: python ./src/dataset/preprocess_dataset.py
+    deps:
+      - data/raw
+    outs:
+      - data/processed
