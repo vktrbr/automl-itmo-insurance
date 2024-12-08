@@ -126,6 +126,10 @@ Key goals include:
     ```bash
     dvc repro
     ```
+5. If you have some problems with file locations, please run
+    ```bash
+    export PYTHONPATH=$(pwd):$PYTHONPATH
+    ```
 
 ---
 
