@@ -10,7 +10,7 @@ The dataset for this competition (both train and test) was generated from a
 deep learning model trained on the Insurance Premium Prediction dataset.
 Feature distributions are close to, but not exactly the same, as the original.
 Feel free to use the original dataset as part of this competition,
-both to explore differences as well as to see whether incorporating
+both to explore differences and to see whether incorporating
 the original in training improves model performance.
 
 
@@ -28,7 +28,7 @@ import zipfile
 import typer
 from loguru import logger
 
-from config import EXTERNAL_DATA_DIR, KAGGLE_DATASET_NAME, RAW_DATA_DIR
+from src.config import EXTERNAL_DATA_DIR, KAGGLE_DATASET_NAME, RAW_DATA_DIR
 
 app = typer.Typer(pretty_exceptions_enable=False)
 

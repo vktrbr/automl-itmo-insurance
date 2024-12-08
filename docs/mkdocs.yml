@@ -48,10 +48,11 @@ plugins:
         python:
           paths:
             - ../src
+            - ../reports
           options:
             docstring_style: sphinx
             inheritance_graph: true
-            inheritance_node_attrs: {"shape": "ellipse", "style": "filled", "fillcolor": "lightblue"}
+            inheritance_node_attrs: { "shape": "ellipse", "style": "filled", "fillcolor": "lightblue" }
             docstring_options:
               ignore_init_summary: true
             filters: [ "!^_" ]
@@ -82,6 +83,7 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.tabbed
+  - pymdownx.snippets
 
 # Site structure
 extra:
