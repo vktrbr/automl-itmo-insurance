@@ -1,0 +1,58 @@
+# Workflow for building and deploying MkDocs documentation using Poetry
+name: Build and deploy MkDocs docs
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Ensure only one deployment at a time
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Install Poetry
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+      
+      - run: curl -sSL https://install.python-poetry.org | python3 -
+      
+      - name: Install dependencies
+        run: poetry install --no-root
+
+      - name: Build MkDocs site
+        working-directory: docs
+        run: poetry run mkdocs build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload built site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Specify the MkDocs output folder
+          path: docs/site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
