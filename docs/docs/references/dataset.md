@@ -24,7 +24,11 @@ A significant proportion of payouts (38%) is concentrated in the range of 400 to
 <img alt="Distribution Analysis" src="https://raw.githubusercontent.com/vktrbr/automl-itmo-insurance/main/reports/figures/target_analysis/png/PREMIUM_AMOUNT_STATS_BY_MONTH_analysis.png"/>
 
 ---
+
 ---
 
 ::: dataset.get_dataset
+
+---
+
 ::: dataset.preprocess_dataset
