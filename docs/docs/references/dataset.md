@@ -19,6 +19,10 @@ period.
 A significant proportion of payouts (38%) is concentrated in the range of 400 to 1000.
 
 ![PREMIUM_AMOUNT Distribution Analysis](https://github.com/vktrbr/automl-itmo-insurance/blob/main/reports/figures/target_analysis/html/PREMIUM_AMOUNT_DISTRIBUTION_BY_YEARS_analysis.html)
+![PREMIUM_AMOUNT Distribution Analysis](https://github.com/vktrbr/automl-itmo-insurance/blob/main/reports/figures/target_analysis/png/PREMIUM_AMOUNT_DISTRIBUTION_BY_YEARS_analysis.png)
+
+<iframe src="https://github.com/vktrbr/automl-itmo-insurance/blob/main/reports/figures/target_analysis/html/PREMIUM_AMOUNT_DISTRIBUTION_BY_YEARS_analysis.html" width="100%" height="600px"></iframe>
+
 --8<-- "https://github.com/vktrbr/automl-itmo-insurance/blob/main/reports/figures/target_analysis/html/PREMIUM_AMOUNT_DISTRIBUTION_BY_YEARS_analysis.html"
 
 ---
