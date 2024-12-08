@@ -1,60 +1,147 @@
-# Course Auto-ML_ITMO. [Regression with an Insurance Dataset](https://www.kaggle.com/competitions/playground-series-s4e12/code) 
+# Course AutoML ITMO: Regression with an Insurance Dataset
 
+Author: Victor Barbarich
 
-2024 AITH: 1-3_Auto ML_ITMO
+This repository contains the project submission for the **Light Auto ML course assignment**, focused
+on solving a regression problem using an insurance dataset from the
+[Kaggle Playground Series S4E12](https://www.kaggle.com/competitions/playground-series-s4e12/overview).
 
+---
 
+## Project Overview
 
-## Project Organization
+The main objective of this project is to demonstrate mastery in solving machine learning problems
+using two approaches:
+
+1. **Baseline Solution**: Using Light Auto ML (LAMA) to quickly build a performant model.
+2. **Custom Solution**: Developing an alternative approach without using LAMA, leveraging
+   traditional machine learning techniques, pipelines, and feature engineering.
+
+Key goals include:
+
+- Building a structured and maintainable project following best practices.
+- Surpassing the baseline performance with a custom model.
+- Conducting thorough exploratory data analysis (EDA) and hypothesis-driven feature engineering.
+
+---
+
+## Repository Structure
 
 ```
-├── LICENSE            <- Open-source license if one is chosen
-├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
-├── README.md          <- The top-level README for developers using this project.
+├── LICENSE            <- Open-source license
+├── Makefile           <- Commands for common project operations
+├── README.md          <- Overview of the project (this file)
+│
 ├── data
-│   ├── external       <- Data from third party sources.
-│   ├── interim        <- Intermediate data that has been transformed.
-│   ├── processed      <- The final, canonical data sets for modeling.
-│   └── raw            <- The original, immutable data dump.
+│   ├── external       <- Data from third-party sources (e.g., Kaggle datasets)
+│   ├── interim        <- Intermediate, cleaned, and transformed data
+│   ├── raw            <- Original dataset files (e.g., train.csv, test.csv)
+│   └── processed      <- Final datasets ready for modeling
 │
-├── docs               <- A default mkdocs project; see www.mkdocs.org for details
+├── docs               <- Project documentation
+│   ├── getting-started <- Installation and overview guides
+│   ├── development     <- Contribution and coding guidelines
+│   └── references      <- Information about datasets and models
 │
-├── models             <- Trained and serialized models, model predictions, or model summaries
+├── models             <- Saved models, predictions, and summaries
 │
-├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-│                         the creator's initials, and a short `-` delimited description, e.g.
-│                         `1.0-jqp-initial-data-exploration`.
+├── notebooks          <- Jupyter notebooks for EDA and experimentation
 │
-├── pyproject.toml     <- Project configuration file with package metadata for 
-│                         auto_ml_itmo_insurance_regression and configuration for tools like black
+├── pyproject.toml     <- Configuration file for project dependencies and tools
 │
-├── references         <- Data dictionaries, manuals, and all other explanatory materials.
+├── references         <- Supporting materials like data dictionaries or manuals
 │
-├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures        <- Generated graphics and figures to be used in reporting
+├── reports            <- Generated analysis and visualizations
+│   └── figures        <- Graphics used in reporting
 │
-├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-│                         generated with `pip freeze > requirements.txt`
+├── requirements.txt   <- Python dependencies for the project environment
 │
-├── setup.cfg          <- Configuration file for flake8
+├── setup.cfg          <- Configuration file for code style and linting
 │
-└── auto_ml_itmo_insurance_regression   <- Source code for use in this project.
-    │
-    ├── __init__.py             <- Makes auto_ml_itmo_insurance_regression a Python module
-    │
-    ├── config.py               <- Store useful variables and configuration
-    │
-    ├── dataset.py              <- Scripts to download or generate data
-    │
-    ├── features.py             <- Code to create features for modeling
-    │
-    ├── modeling                
-    │   ├── __init__.py 
-    │   ├── predict.py          <- Code to run model inference with trained models          
-    │   └── train.py            <- Code to train models
-    │
-    └── plots.py                <- Code to create visualizations
+└── src                <- Source code for the project
+    ├── __init__.py    <- Makes the src directory a Python module
+    ├── config.py      <- Configuration settings
+    ├── dataset.py     <- Data loading and preprocessing scripts
+    ├── features.py    <- Feature engineering utilities
+    ├── modeling
+    │   ├── train.py   <- Training scripts for models
+    │   ├── predict.py <- Model inference scripts
+    │   └── __init__.py
+    └── plots.py       <- Visualization utilities
 ```
 
---------
+---
 
+## Key Components
+
+### 1. **Exploratory Data Analysis (EDA)**
+
+- Distribution of target variable and features
+- Analysis of missing values, anomalies, and feature importance
+- Correlation and dependency analysis
+- Visualization of key insights
+
+### 2. **Baseline Solution with LAMA**
+
+- Implementation of a Light Auto ML pipeline
+- Experimentation with multiple configurations
+- Selection of the best-performing model for benchmarking
+
+### 3. **Custom Solution**
+
+- Development of a custom pipeline:
+    - Preprocessing, handling missing values, feature engineering
+    - Model selection and hyperparameter optimization
+    - Ensemble methods to boost performance
+- Comprehensive documentation of methodology and results
+
+### 4. **Code Quality and Organization**
+
+- Clean, modular, and well-documented code
+- Adherence to best practices (PEP 8, SOLID principles)
+- Use of tools like `scikit-learn` pipelines, logging, and exception handling
+
+---
+
+## Installation and Usage
+
+### Prerequisites
+
+- Python 3.12 [Installation Guide](https://www.python.org/downloads/)
+- Poetry [Installation Guide](https://python-poetry.org/docs/#installation)
+
+### Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/vktrbr/automl-itmo-insurance.git
+   cd auto_ml_itmo_insurance_regression
+   ```
+2. Install dependencies:
+   ```bash
+   poetry install
+   ```
+3. Add `kaggle.json` to the `.kaggle` folder as `.kaggle/kaggle_example.json`
+4. Running the Project using dvc
+    ```bash
+    dvc repro
+    ```
+
+---
+
+## Results and Achievements
+
+- **Baseline Performance**: Model trained using Light Auto ML achieved a strong benchmark result.
+- **Custom Solution**: Improved upon the baseline with a tailored pipeline, yielding better accuracy
+  and robustness.
+- **Analysis**: Provided a detailed comparison of both approaches, highlighting their strengths and
+  weaknesses.
+
+---
+
+## Contributions and Acknowledgments
+
+This project is a learning exercise as part of the ITMO University course on Auto ML techniques.
+
+For more information or to contribute, refer to
+the [Contribution Guidelines](/docs/docs/development/contributing.md).
